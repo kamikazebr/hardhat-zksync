@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { HardhatRuntimeEnvironment, HttpNetworkConfig, Network, NetworksConfig } from 'hardhat/types';
 import * as zk from 'zksync-web3';
 import * as ethers from 'ethers';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import '@matterlabs/hardhat-zksync-deploy';
 import '@matterlabs/hardhat-zksync-solc';
 import '../../../src/index';

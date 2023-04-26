@@ -25,7 +25,6 @@ export function getReturnDataFromError(error: any): string {
     if (returnData === undefined || typeof returnData !== 'string') {
         throw error;
     }
-
     return returnData;
 }
 
@@ -55,12 +54,17 @@ type FuncSelectorWithData = {
 
 export function getFuncSelectorWithData(message: string): FuncSelectorWithData {
     const extracted = message.match(/0x\w*/g);
-
     if (extracted == null || !message.includes('Error function_selector')) {
-        // Remove dot at the end of the reason
-        message = message.substring(0, message.length - 1);
-        // Remove substring: `Cannot estimate transaction: `
-        const reason = message.substring(29);
+        let reason = '';
+        if (message.includes('Cannot estimate transaction: ')) {
+            // Remove substring: `Cannot estimate transaction: `
+            reason = message.substring(29);
+        } else if (message.includes('cannot estimate gas: ')) {
+            // Remove substring: `cannot estimate gas: `
+            reason = message.substring(21);
+        } else {
+            throw new ZkSyncChaiMatchersPluginError('Cannot parse error message and get reason', 'string');
+        }
 
         return {
             funcSelector: ERROR_STRING_PREFIX,

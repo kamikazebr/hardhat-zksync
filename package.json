@@ -25,6 +25,5 @@
     "lint:fix": "wsrun --exclude-missing --stages lint:fix",
     "test:release-script": "mocha scripts/test/tests.js"
   },
-  "dependencies": {},
   "type": "module"
 }

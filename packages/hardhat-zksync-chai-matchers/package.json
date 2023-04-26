@@ -38,7 +38,6 @@
     "singleQuote": true,
     "bracketSpacing": true
   },
-  "dependencies": {},
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "~1.0.4",
     "@types/chai": "^4.2.0",
@@ -63,5 +62,8 @@
   },
   "peerDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "~1.0.4"
+  },
+  "dependencies": {
+    "@matterlabs/hardhat-zksync-deploy": "workspace:^"
   }
 }
